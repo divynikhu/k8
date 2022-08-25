@@ -1,0 +1,13 @@
+{
+  "Node":{
+      "get Node details": "kubectl get nodes -n <namespace>",
+      "describe node" : "kubectl describe nodes <node_name> -n <namespace>"
+  },
+  "Service":{
+      "get service details" : "kubectl get service -n <namespace>"
+    },
+    "ingress controller":{
+      "get ingress controll details" :"kubectl get services ingress-nginx-controller --namespace=ingress-nginx"
+    }
+
+}

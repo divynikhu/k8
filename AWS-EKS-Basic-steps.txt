@@ -1,0 +1,42 @@
+EKS creation steps:
+1. Run command to create the eKS cluster: 
+aws eks create-cluster --region ap-south-1  --name ns-test-eks-2 \
+	--kubernetes-version 1.21 --role-arn arn:aws:iam::714394906614:role/eksClusterRole \ 
+	--resources-vpc-config subnetIds=subnet-05fde42d34468cfc0,subnet-084c209bed66aef53,securityGroupIds=sg-02ef1d704e6747b28 \
+	--profile epiqjde --color off
+
+    Note:
+    Change value as per the requirements
+
+
+2. Create node group from logn to AWS console 
+
+3. Get cluster status 
+aws eks --region ap-south-1 describe-cluster --name ns-test-eks-2 --profile epiqjde --color off --query cluster.status --output json
+
+4. Update kubectl configuration using following command
+aws eks  --region ap-south-1 update-kubeconfig --name ns-test-eks-2  --profile epiqjde --color off
+
+5. Once cluser is ready, use following yml file to access the file: 
+	D:\Nikhil\projects\EPIQ Infotech LLC\NS Personal - Documents\General\Project_Analysis\AWS_docs\eks
+	a. eks-sample-deployment.yaml : Deploy the application 
+	b. eks-sample-load-balancer.yaml : Create the service typr Loadbalancer to access the application from outside
+	c. eks-sample-service.yaml : Create the service typr Service to access the application
+
+
+Tutorial: https://www.eksworkshop.com/beginner/040_dashboard/connect/
+
+ref: D:\Nikhil\projects\EPIQ Infotech LLC\NS Personal - Documents\General\Project_Analysis\AWS_docs\eks
+
+2. Login to AWS console with same id & create the cluster 
+
+3. Once cluster is created, create pod.yml & service.yml file to create the pod & server
+
+
+4. Create name space & update the above yml file accordinlgy 
+
+5. Create pod: kubectl apply -f eks-sample-deployment.yaml
+6. Create Service: kubectl apply -f eks-sample-service.yaml
+
+
+Ref: https://docs.aws.amazon.com/eks/latest/userguide/sample-deployment.html

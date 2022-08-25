@@ -1,0 +1,25 @@
+"k8-commands":
+  {
+  "all":{
+        "list all objects of k8" : "kubectl get all"
+      },
+  "Pod":
+    {
+      "create": "kubectl create -f <pod_defination-file-name>",
+      "list" : "kubectl get pods", # will list all pods,
+      "list for specific name space": "kubectl get pods -n <namespace name>",
+      "delete" : "kubectl delete pod <pod_name>",
+      "get pod defination in yaml" : "kubectl get pod <pod-name> -o yaml >pod.defination.yaml",
+      "edit pod properties" : "kubectl edit pod <pod-name>"
+    },
+    "replicaset":
+    {
+      "create": "kubectl create -f <replicaset_defination-file-name>",
+      "delete" : "kubectl delete pod <replicaset_name>", # Will delete associated pods
+      "list" : "kubectl get <replicaset_name>",
+      "replace" : "kubectl -f replcate <replicaset_defination-file-name>",
+      "scale" : "kubectl scale -replicas=6 -f replicaset-def"
+    },
+    "deploymentset"
+
+}
